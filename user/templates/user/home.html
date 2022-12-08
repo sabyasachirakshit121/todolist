@@ -9,7 +9,18 @@
 </head>
 
 <body>
-    To do list homepage
+    {% if user.is_authenticated %}
+    <div class="alert alert-success" role="alert">
+        <h3>Welcome {{ user.username }} to To do list app!</h3>
+        <a href="/logout">Logout?</a>
+    </div>
+    {% else %}
+    <div class="alert alert-success" role="alert">
+        <h3>Welcome!</h3>
+        <a href="{% url 'register' %}">Signup</a>
+        <a href="{% url 'login' %}">Login</a>
+    </div>
+    {% endif %}
 </body>
 
 </html>
